@@ -1,0 +1,318 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <!-- INTRODUCTION -->
+        <div id="introbg">
+            <div id="intro">
+                <img src="images/smile.svg">
+                <h1>The Happy Designer Challenge</h1>
+                <p>Is what makes you happy the same as what makes the average designer happy? For each of these questions, pick which you would rather have, then see what designers answered in the 2016 Google Designer Survey.</p>
+                <button onclick="closeIntro()">Begin</button>
+            </div>
+        </div>
+        
+        
+        <!-- PROGRESS BAR -->
+        <div id="progressbar">
+            <ul id="progresscircles">
+                <li class="text">Start</li>
+                <li class="line"><hr></li>
+                <li data-progress="q1" class="circle current">1</li>
+                <li class="line"><hr></li>
+                <li data-progress="q2" class="circle">2</li>
+                <li class="line"><hr></li>
+                <li data-progress="q3" class="circle">3</li>
+                <li class="line"><hr></li>
+                <li data-progress="q4" class="circle">4</li>
+                <li class="line"><hr></li>
+                <li class="text">Finish</li>
+            </ul>
+        </div>
+        
+        <div id="score-container">
+            <div id="score">
+                <div id="scoreline"><hr></div>
+                <div class="tics">
+                    <div class="scoretic" id="tic1">–40</div>
+                    <div class="scoretic" id="tic2">–20</div>
+                    <div class="scoretic" id="tic3">0</div>
+                    <div class="scoretic" id="tic4">20</div>
+                    <div class="scoretic" id="tic5">40</div>
+                    <div id="scorecircle">0</div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!-- QUESTION 1 -->
+        <div class="question" id="q1">
+            <div class="qheader">
+                <h2>Stability vs. Independence</h2>
+                <h3>Which would you rather have?</h3>
+            </div>
+            <div class="answer answer-l" data-score="5">
+                <div class="answercontainer">
+                    <div class="choiceimg palette"></div>
+                    <p>A lot of creative freedom and independence, but low job security</p>
+                </div>
+            </div>
+            <div class="answer answer-r" data-score="-5">
+                <div class="answercontainer">
+                    <div class="choiceimg lock"></div>
+                    <p>A very stable job, without much creative freedom or independence</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="q1-l" class="result-container">
+            <div class="result resultgood">
+                <img src="images/smile.svg">
+                <h3>+5 Points</h3>
+                <p>Designers with more creative freedom and independence but little job security were 5% happier than designers with the opposite situation. It seems designers don't mind a bit of uncertainty as long as they can still flex their creative muscles.</p>
+                <button>Next</button>
+            </div>
+            <div class="graph-container">
+                <div class="graph">
+                    <canvas id="q1goodgraph" class="graphcanvas" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div id="q1-r" class="result-container">
+            <div class="result resultbad">
+                <img src="images/Frown.svg">
+                <h3>–5 Points</h3>
+                <p>Designers with more creative freedom and independence but little job security were 5% happier than designers with the opposite situation. It seems designers don't mind a bit of uncertainty as long as they can still flex their creative muscles.</p>
+                <button>Next</button>
+            </div>
+            <div class="graph-container">
+                <div class="graph">
+                    <canvas id="q1badgraph" class="graphcanvas" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- QUESTION 2 -->
+        
+        <div class="question" id="q2">
+            <div class="qheader">
+                <h2>Commute vs. Work Hours</h2>
+                <h3>Which would you rather do?</h3>
+            </div>
+            <div class="answer answer-l" data-score="8">
+                <div class="answercontainer">
+                    <div class="choiceimg car"></div>
+                    <p>Commute half an hour to work, and work a normal 40 hour work week</p>
+                </div>
+            </div>
+            <div class="answer answer-r" data-score="-8">
+                <div class="answercontainer">
+                    <div class="choiceimg house"></div>
+                    <p>Work from home with no commute for 50+ hours per week</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="q2-l" class="result-container">
+            <div class="result resultgood">
+                <img src="images/smile.svg">
+                <h3>+8 Points</h3>
+                <p>Designers with normal hours and a long commute are 8% happier than designers with no commute and long hours. Working extra long hours might not always be worth getting to work in your pajamas.</p>
+                <button>Next</button>
+            </div>
+            <div class="graph-container">
+                <div class="graph">
+                    <canvas id="q2goodgraph" class="graphcanvas" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div id="q2-r" class="result-container">
+            <div class="result resultbad">
+                <img src="images/Frown.svg">
+                <h3>–8 Points</h3>
+                <p>Designers with long hours and no commute are 8% less happy than designers with a long commute and regular hours. Working extra long hours might not always be worth getting to work in your pajamas.</p>
+                <button>Next</button>
+            </div>
+            <div class="graph-container">
+                <div class="graph">
+                    <canvas id="q2badgraph" class="graphcanvas" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- QUESTION 3 -->
+        
+        <div class="question" id="q3">
+            <div class="qheader">
+                <h2>Rank vs. Responsibility</h2>
+                <h3>Which would you rather have?</h3>
+            </div>
+            <div class="answer answer-l" data-score="-6">
+                <div class="answercontainer">
+                    <div class="choiceimg multiple"></div>
+                    <p>A high-level position and 100+ employees under your management</p>
+                </div>
+            </div>
+            <div class="answer answer-r" data-score="6">
+                <div class="answercontainer">
+                    <div class="choiceimg single"></div>
+                    <p>A mid-level position with no one to manage</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="q3-l" class="result-container">
+            <div class="result resultbad">
+                <img src="images/Frown.svg">
+                <h3>-6 Points</h3>
+                <p>Designers with high level positions with a big team to manage are 6% happier than designers with mid-level positions and no one to manage. It seems designers are happier when they can spend more time designing and less time managing.</p>
+                <button>Next</button>
+            </div>
+            <div class="graph-container">
+                <div class="graph">
+                    <canvas id="q3badgraph" class="graphcanvas" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div id="q3-r" class="result-container">
+            <div class="result resultgood">
+                <img src="images/Smile.svg">
+                <h3>+6 Points</h3>
+                <p>Designers with mid-level positions and no one to manage 6% happier than high-level designers with a big team to manage. It seems designers are happier when they can spend more time designing and less time managing.</p>
+                <button>Next</button>
+            </div>
+            <div class="graph-container">
+                <div class="graph">
+                    <canvas id="q3goodgraph" class="graphcanvas" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- QUESTION 4 -->
+        
+        <div class="question" id="q4">
+            <div class="qheader">
+                <h2>Salary vs. Value</h2>
+                <h3>Which would you rather do?</h3>
+            </div>
+            <div class="answer answer-l" data-score="-20">
+                <div class="answercontainer">
+                    <div class="choiceimg money"></div>
+                    <p>Make a $100k+ salary, but not feel valued at your workplace</p>
+                </div>
+            </div>
+            <div class="answer answer-r" data-score="20">
+                <div class="answercontainer">
+                    <div class="choiceimg medal"></div>
+                    <p>Make a $50k salary or less, but feel highly valued at work</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="q4-l" class="result-container">
+            <div class="result resultbad">
+                <img src="images/Frown.svg">
+                <h3>-20 Points</h3>
+                <p>Designers who are payed a lot but are valued little are 20% less happy than designers in the opposite situation. Looks like money can’t always buy happiness!</p>
+                <button class="finish">Finish</button>
+            </div>
+            <div class="graph-container">
+                <div class="graph">
+                    <canvas id="q4badgraph" class="graphcanvas" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div id="q4-r" class="result-container">
+            <div class="result resultgood">
+                <img src="images/Smile.svg">
+                <h3>+20 Points</h3>
+                <p>Designers who are payed little but are highly valued are 20% happier than designers in the opposite situation. Looks like money can’t always buy happiness!</p>
+                <button>Finish</button>
+            </div>
+            <div class="graph-container">
+                <div class="graph">
+                    <canvas id="q4goodgraph" class="graphcanvas" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!-- CONCLUSION -->
+        
+        <div id="end-container">
+        
+            <div class="endheader">
+                <div class="endheadercontent">
+                    <img id="smileorfrown">
+                    <div class="endheadertext">
+                    <h1>Final Score:</h1>
+                    <p class="finalscore"><span id="scorenum"></span> <span id="points">points!</span></p>
+                    <p><span id="happycount"></span>/4 Questions Happy</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <div class="conclusionimg">
+                    <img src="images/Finish/Medal.svg">
+                </div>
+                <div class="conclusiontext">
+                    <h2>The Value of Feeling Valued</h2>
+                    <p>Of all the contributing factors to happiness, whether or not a designer feels valued at their organization makes the most dramatic difference. Even when offset by a thing that many people aim for in their careers, a high salary, it’s still much better to feel valued.</p> 
+                    <h3>It’s impossible to get a positive score if you pick money over feeling valued!</h3>
+                </div>
+            </div>
+            
+            <div class="questionoverview">
+                <h2>You Chose:</h2>
+                <div class="qsummary" data-question="q1">
+                    <img>
+                    <p class="yourchoice"></p>
+                    <p>over <span class="notchosen"></span></p>
+                </div>
+                <div class="qsummary" data-question="q2">
+                    <img>
+                    <p class="yourchoice"></p>
+                    <p>over <span class="notchosen"></span></p>
+                </div>
+                <div class="qsummary" data-question="q3">
+                    <img>
+                    <p class="yourchoice"></p>
+                    <p>over <span class="notchosen"></span></p>
+                </div>
+                <div class="qsummary" data-question="q4">
+                    <img>
+                    <p class="yourchoice"></p>
+                    <p>over <span class="notchosen"></span></p>
+                </div>
+            </div>
+            
+            <div id="playagain">
+                <h2>Don't believe it?</h2>
+                <button>Play Again!</button>
+            </div>
+        
+        
+        </div>
+        
+        
+        
+        
+    <script src="scripts.js"></script>
+    </body>
+</html>

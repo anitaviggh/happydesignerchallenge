@@ -1,0 +1,552 @@
+/* CSS for Happy Designer Challenge */
+
+
+
+/* General Styles */
+
+
+* {
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+}
+
+html, body {
+    font-family:"Circular", sans-serif;
+    height:100%;
+    overflow:hidden;
+    color:#828282
+}
+
+h1, h2, h3 {
+    font-family:"Patua One", sans-serif;
+    font-weight:normal;
+}
+
+button {
+    background:None;
+    border:3px solid #fff;
+    min-width:200px;
+    min-height:50px;
+    border-radius:50px;
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#fff;
+    font-weight:bold;
+    outline:none;
+    transition:all 0.5s;
+    cursor:pointer;
+}
+
+
+
+/* Progress bar */
+
+#progressbar {
+    position:absolute;
+    top:0;
+    width:100%;
+    height:70px;
+    background:#b5b7b8;
+    color:#fff
+}
+
+#progresscircles {
+    list-style-type:none;
+    margin:0 auto;
+    text-align:center;
+}
+
+#progresscircles li {
+    display:inline-block;
+    text-align:center;
+    margin:12px;
+    vertical-align:center;
+}
+
+#progresscircles li.circle {
+    width:45px;
+    height:45px;
+    border-radius:100px;
+    border:2px solid #fff;
+    font-size:16px;
+    line-height:40px;
+    font-weight:100;
+    color:#ddd;
+}
+
+#progresscircles li.circle.good {
+    background-color:#DB7DCF;
+    color:#fff;
+}
+
+#progresscircles li.circle.bad {
+    background-color:#828282;
+    color:#fff;
+}
+
+#progresscircles li.circle.current {
+    background-color:#36D2B5;
+    color:#fff;
+}
+
+#progresscircles li.line {
+    width:45px;
+    position:relative;
+    top:-4px;
+}
+
+#progresscircles li.line hr {
+    border-top:1px solid #fff;
+    border-bottom:none;
+}
+
+
+/* Score Bar */
+
+
+#score-container {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:100px;
+    background:#b5b7b8;
+    color:#fff
+}
+
+#score {
+    max-width:900px;
+    margin:auto;
+    height:100%;
+    padding-top:35px;
+    position:relative;
+}
+
+#scoreline hr {
+    border:1px solid #fff;
+    width:100%;
+}
+
+.scoretic {
+    position:absolute;
+    width:50px;
+    text-align:center;
+    margin-top:25px;
+    font-size:18px;
+}
+
+.scoretic:after {
+    width:2px;
+    content:'';
+    height:30px;
+    position:absolute;
+    background:#fff;
+    top:-40;
+    left:50%;
+    transform:translatex(-50%);
+}
+
+.tics {
+    position:relative;
+    left:-25px;
+}
+
+#tic1 {
+    left:0%;
+}
+
+#tic2 {
+    left:25%;
+}
+
+#tic3 {
+    left:50%;
+}
+
+#tic4 {
+    left:75%;
+}
+
+#tic5 {
+    left:100%;
+}
+
+#scorecircle {
+    height:50px;
+    width:50px;
+    background:#36D2B5;
+    border-radius:100px;
+    border:3px solid #fff;
+    position:absolute;
+    top:-27px;
+    left:50%;
+    text-align:center;
+    line-height:43px;
+    font-size:20px;
+    font-weight:bold;
+    transition:all, 1s;
+}
+
+/* Section Styles*/
+#introbg {
+    background-color:#36D2B5;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    color:#fff;
+    z-index:999999;
+}
+
+#intro {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+
+#intro img {
+    width:150px;
+    display:block;
+    margin:0px auto 30px;
+}
+
+#intro h1 {
+    text-align:center;
+    font-size:40px;
+}
+
+#intro p {
+    text-align:center;
+    max-width:500px;
+    margin:20px auto;
+    line-height:1.35em;
+}
+
+#intro button {
+    display:block;
+    margin:0 auto;
+}
+
+#intro button:hover {
+    background:#fff;
+    color:#36D2B5;
+}
+
+/* Questions */
+
+.question {
+    position:absolute;
+    top:70px;
+    bottom:100px;
+    left:0;
+    right:0;
+    background:#fff;
+    display:none;
+}
+
+.qheader {
+    width:100%;
+    padding:20px;
+    height:120px;
+    border-bottom:1px solid #aaa;
+}
+
+.qheader h2 {
+    text-align:center;
+    font-size:2em;
+}
+
+.qheader h3 {
+    text-align:center;
+    margin-top:12px;
+    font-size:1.5em;
+}
+
+.answer {
+    width:50%;
+    height:calc(100% - 120px);
+    float:left;
+    position:relative;
+    transition:all 0.5s;
+    cursor:pointer;
+}
+
+.answer:hover {
+    background:#36D2B5;
+}
+
+.answercontainer {
+    max-width:400px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-55%);
+    text-align:center;
+}
+
+.answer p {
+    font-size:18px;
+    line-height:1.4em;
+    color:#333;
+    transition:all 0.3s;
+}
+
+.answer:hover p {
+    color:#fff
+}
+
+.choiceimg {
+    margin-bottom:30px;
+    width:200px;
+    height:200px;
+    margin:0 auto 30px;
+    background-size:contain;
+    background-position:center center;
+    background-repeat:no-repeat;
+    transition:all 0.5s;
+}
+
+/* Palette */
+.palette { background-image:url(images/Palette.svg); }
+.answer:hover .palette { background-image:url(images/white/PaletteWhite.svg); }
+
+/* Lock */
+.lock { background-image:url(images/Lock.svg); }
+.answer:hover .lock { background-image:url(images/white/LockWhite.svg); }
+
+/* Car */
+.car { background-image:url(images/car.svg); }
+.answer:hover .car { background-image:url(images/white/carwhite.svg); }
+
+/* House */
+.house { background-image:url(images/house.svg); }
+.answer:hover .house { background-image:url(images/white/houseWhite.svg); }
+
+/* Single */
+.single { background-image:url(images/single.svg); }
+.answer:hover .single { background-image:url(images/white/singlewhite.svg); }
+
+/* Multiple */
+.multiple { background-image:url(images/multiple.svg); }
+.answer:hover .multiple { background-image:url(images/white/multipleWhite.svg); }
+
+/* Medal */
+.medal { background-image:url(images/medal.svg); }
+.answer:hover .medal { background-image:url(images/white/MedalWhite.svg); }
+
+/* Money */
+.Money { background-image:url(images/Money.svg); }
+.answer:hover .Money { background-image:url(images/white/MoneyWhite.svg); }
+
+
+
+/* Results */
+
+.result-container {
+    display:none;
+    position:absolute;
+    top:70px;
+    bottom:100px;
+    left:0;
+    right:0;
+    background:#fff;
+}
+
+.result, .graph-container {
+    height:100%;
+    width:50%;
+    float:left;
+    color:#fff;
+}
+
+.result img {
+    display:block;
+    margin:50px auto 20px;
+}
+
+.result h3 {
+    font-size:2em;
+    text-align:center;
+}
+
+.result p {
+    max-width:400px;
+    margin:20px auto 20px;
+    line-height:1.4em;
+}
+
+.result button {
+    margin:20px auto;
+    display:block;
+}
+
+.resultgood button:hover {
+    color:#DB7DCF;
+    background:#fff;
+}
+
+.resultbad button:hover {
+    color:#828282;
+    background:#fff;
+}
+
+.resultgood {
+    background:#DB7DCF;
+}
+
+.resultbad {
+    background:#828282;
+}
+
+.graph {
+    width:80%;
+    height:80%;
+    margin:10%;
+    position:relative;
+}
+
+
+/* FINISH */
+
+
+#end-container {
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    overflow:auto;
+}
+
+.endheader {
+    background:#aaa;
+    width:100%;
+    height:300px;
+    color:#fff;
+    margin:0;
+}
+
+.endheadercontent {
+    max-width:600px;
+    height:300px;
+    margin:0px auto;
+    padding:50px 0;
+}
+
+.endheadercontent img {
+    float:left;
+    width:170px;
+}
+
+.endheadertext {
+    float:right;
+    width:400px;
+    text-align:center;
+    margin-top:20px;
+}
+
+.endheadertext h1 {
+    font-size:24px;
+    margin-bottom:20px;
+}
+
+.endheader .finalscore {
+    font-size:40px;
+}
+
+.endheader p {
+    font-size:24px;
+    font-family:"Patua One";
+    margin-bottom:20px;
+}
+
+
+.questionoverview {
+    width:900px;
+    margin:50px auto;
+    clear:both;
+    color:#828282;
+}
+
+.questionoverview h2 {
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.questionoverview::after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.qsummary {
+    width:225px;
+    float:left;
+    text-align:center;
+}
+
+.qsummary img {
+    height:110px;
+    margin-bottom:15px;
+}
+
+.yourchoice.good {
+    font-weight:bold;
+    color:#DB7DCF;
+}
+
+.yourchoice.bad {
+    font-weight:bold;
+    color:#828282;
+}
+
+.conclusion {
+    width:900px;
+    margin:70px auto;
+}
+
+.conclusiontext {
+    width:50%;
+    color:828282;
+    line-height:1.4em;
+}
+
+.conclusiontext h2 {
+    margin-bottom:15px;
+}
+
+.conclusiontext h3 {
+    margin-top:15px;
+    color:#36D2B5;
+    line-height:1.4em;
+}
+
+.conclusionimg {
+    float:right;
+    width:50%;
+    text-align:center;
+}
+
+#playagain {
+    height:200px;
+    width:100%;
+    background:#36D2B5;
+    color:#fff;
+    text-align:center;
+    padding-top:50px;
+}
+
+#playagain h2 {
+    margin-bottom:20px;
+}
+
+#playagain button:hover {
+    background: #fff;
+    color: #36D2B5;
+}
